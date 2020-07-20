@@ -1,0 +1,17 @@
+# - Config file for the Mogs3DObject lib
+# It defines the following variables
+#
+# Mogs3DObject_INCLUDE_DIRS - include directories
+# Mogs3DObject_LIBRARY_DIRS - library directory (normally not used!)
+# Mogs3DObject_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+SET(Mogs3DObjects_INCLUDE_DIRS  @Mogs3DObjects_INCLUDE_DIRS@)
+
+SET(Mogs3DObjects_LIBRARY_DIRS @Mogs3DObjects_LIBRARY_DIRS@)
+
+SET(Mogs3DObjects_LIBRARIES @Mogs3DObjects_LIBRARIES@)
+
+SET(Mogs3DObjects_FLAGS @Mogs3DObjects_FLAGS@)
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">	
+<xs:element name="mogs_plugins">
+<xs:complexType>
+	<xs:sequence>
+		<xs:element name="problems"/>
+		<xs:element name="plugins"/>
+		<xs:element name="robots"/>
+	</xs:sequence>  
+	<xs:attribute name="type" type="xs:string"> </xs:attribute>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="problems">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="problem" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="plugins">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="plugin" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="robots">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="robot" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="problem">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="library" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="plugin">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="library" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="robot">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="library" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+</xs:schema>

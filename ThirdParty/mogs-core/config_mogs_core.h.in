@@ -1,0 +1,19 @@
+#ifndef MOGS_CORE_CONFIG_H
+#define MOGS_CORE_CONFIG_H
+
+#define VERSION_MAJOR @MOGS_CORE_VERSION_MAJOR@
+#define VERSION_MINOR @MOGS_CORE_VERSION_MINOR@
+
+// #define DTD_REPOSITORY "@CMAKE_INSTALL_LIBDIR@/share/mogs2/DTD"
+// #define CONFIG_REPOSITORY "@CMAKE_INSTALL_LIBDIR@/share/mogs2"
+#define TEMPLATE_REPOSITORY "@CMAKE_INSTALL_LIBDIR@/share/mogs2/templates"
+
+#define XSD_PROJECT_FILE "file://@CMAKE_INSTALL_LIBDIR@/share/mogs2/xsd/project.xsd"
+
+#define XSD_PLUGIN_CONFIG_FILE "file://@CMAKE_INSTALL_LIBDIR@/share/mogs2/xsd/plugins.xsd"
+#define PLUGIN_CONFIG_FILE "@CMAKE_INSTALL_LIBDIR@/share/mogs2/plugins.xml"
+
+#define XSD_ROBOT_FILE "file://@CMAKE_INSTALL_LIBDIR@/share/mogs2/xsd/robot.xsd"
+#define XSD_URDF_ROBOT_FILE "file://@CMAKE_INSTALL_LIBDIR@/share/mogs2/xsd/urdf_robot.xsd"
+
+#endif

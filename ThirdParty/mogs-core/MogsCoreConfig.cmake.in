@@ -1,0 +1,16 @@
+# - Config file for the MogsCore lib
+# It defines the following variables
+#
+# MogsCore_INCLUDE_DIRS - include directories
+# MogsCore_LIBRARY_DIRS - library directory (normally not used!)
+# MogsCore_LIBRARIES - libraries to link against
+
+# Tell the user project where to find our headers and libraries
+
+SET(MogsCore_INCLUDE_DIRS @MogsCore_INCLUDE_DIRS@) 
+
+SET(MogsCore_LIBRARY_DIRS @INSTALL_LIB_DIRS@ @MogsUtils_LIB_DIRS@ @Mogs3DObject_LIB_DIRS@)
+
+SET(MogsCore_LIBRARIES @MogsCore_LIBRARIES@ @MogsUtils_LIBRARIES@ @Mogs3DObject_LIBRARIES@)
+
+SET(MogsCore_FLAGS @MogsCore_FLAGS@ @MogsUtils_FLAGS@ @Mogs3DObject_FLAGS@)

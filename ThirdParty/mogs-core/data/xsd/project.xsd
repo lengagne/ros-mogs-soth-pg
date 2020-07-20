@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="project">
+<xs:complexType>
+	<xs:sequence>
+		<xs:element name="objects" />
+		<xs:element name="robots" />
+		<xs:element name="problems" />
+	</xs:sequence>
+	<xs:attribute name="type" type="xs:string"> </xs:attribute>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="objects">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="object"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="robots">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="robot"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="problems">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="problem" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+<xs:element name="robot">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="robot_type" type="xs:string"/>
+			<xs:element name="xml_file" type="xs:string"/>
+			<xs:element name="size" type="xs:double"  minOccurs="0" maxOccurs="1" />
+			<xs:element name="weight" type="xs:double"  minOccurs="0" maxOccurs="1" />
+			<xs:element name="power" type="xs:double"  minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="scalable" type="AttributeScalable"> </xs:attribute>
+	</xs:complexType>
+</xs:element>
+
+<xs:simpleType name="AttributeScalable">
+  <xs:restriction base="xs:string">
+	<xs:enumeration value="yes"/>
+	<xs:enumeration value="no"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:element name="problem">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="xml_file" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+</xs:schema>
+
+
