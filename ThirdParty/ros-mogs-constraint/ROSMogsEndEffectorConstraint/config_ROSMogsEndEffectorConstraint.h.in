@@ -1,0 +1,9 @@
+#ifndef ROSMogsEndEffectorConstraint_CONFIG_H
+#define ROSMogsEndEffectorConstraint_CONFIG_H
+
+#define ROSMogsEndEffectorConstraint_VERSION_MAJOR @ROSMogsEndEffectorConstraint_VERSION_MAJOR@
+#define ROSMogsEndEffectorConstraint_VERSION_MINOR @ROSMogsEndEffectorConstraint_VERSION_MINOR@
+
+
+#endif
+

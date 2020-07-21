@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pattern_generator type="MogsSothPatternGenerator">
-    <speed_up> 1.0 </speed_up>
+    <speed_up> 2.0 </speed_up>
 <!--           <test_derivative> true </test_derivative> -->
-    <constraint type="JointLimitConstraint"/>            
+    <constraint type="JointLimitConstraint"/>    
     
-    <constraint type="EndEffectorConstraint">
+    <constraint type="DualArmManipulationConstraint">
+        <body1> r_ankle</body1>
+        <body2> l_ankle</body2>
+        <position> 0 -0.1 0 </position>
+        <rotation> 0 0 0 </rotation>
+    </constraint>      
+    
+    <constraint type="ROSEndEffectorConstraint">
         <body>  r_wrist </body>
         <ref_body> l_ankle </ref_body>
         <position> 0.05 0 0.0 </position>

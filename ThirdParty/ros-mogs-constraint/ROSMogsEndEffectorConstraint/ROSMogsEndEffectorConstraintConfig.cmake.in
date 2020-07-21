@@ -1,0 +1,16 @@
+# - Config file for the ROSMogsEndEffectorConstraint lib
+# It defines the following variables
+#
+# ROSMogsEndEffectorConstraint_INCLUDE_DIRS - include directories
+# ROSMogsEndEffectorConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# ROSMogsEndEffectorConstraint_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(ROSMogsEndEffectorConstraint_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@ @MogsCore_INCLUDE_DIRS@)
+
+set(ROSMogsEndEffectorConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@ @MogsCore_LIBRARY_DIRS@)
+
+set(ROSMogsEndEffectorConstraint_LIBRARIES @ROSMogsEndEffectorConstraint_LIBRARIES@ @MogsCore_LIBRARIES@)
+
+SET(ROSMogsEndEffectorConstraint_FLAGS @ROSMogsEndEffectorConstraint_FLAGS@ @MogsCore_FLAGS@)
