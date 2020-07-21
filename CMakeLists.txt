@@ -9,10 +9,12 @@ project(ros-mogs-soth-pg)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS roscpp std_msgs sensor_msgs)
 
+find_package(MogsSothPatternGenerator REQUIRED)
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
-add_subdirectory(ThirdParty)
+# add_subdirectory(ThirdParty)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -134,6 +136,8 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(mogs_soth_pg_node src/mogs_soth_pg.cpp)
 
+add_executable(angle_traj_to_nao_gazebo src/angle_traj_to_nao_gazebo.cpp)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -149,6 +153,11 @@ target_link_libraries(mogs_soth_pg_node
   ${catkin_LIBRARIES}
   ${MogsSothPatternGenerator_LIBRARIES}
 )
+
+target_link_libraries(angle_traj_to_nao_gazebo
+  ${catkin_LIBRARIES}
+)
+
 
 #############
 ## Install ##

@@ -669,7 +669,7 @@ bool MogsRobotProperties::SetRobotUrdf (	const mogs_string & urdf_file)
     }else
     {
         qDebug()<<" Error the xsd "<< XSD_URDF_ROBOT_FILE<< " is not valid";
-//         exit(0);
+        exit(0);
     }
     std::vector < MogsRobotBody, Eigen::aligned_allocator < MogsRobotBody > > List_Of_Bodies;
     std::vector < MogsRobotJoint, Eigen::aligned_allocator < MogsRobotJoint > >List_Of_Joints;

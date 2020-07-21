@@ -33,6 +33,11 @@
 <!--     <param name="mogs_soth_pg/prefix" value=""/> -->
     <param name="mogs_soth_pg/config" value="$(find ros-mogs-soth-pg)/config/nao.xml"/>
   
-<!--     <node name="mogs_soth_pg_node" pkg="ros-mogs-soth-pg" type="mogs_soth_pg_node"/> -->
+    <node name="mogs_soth_pg_node" pkg="ros-mogs-soth-pg" type="mogs_soth_pg_node">
+        <remap from="/mogs_soth_pg/joint_states" to="/joint_states" />
+        <remap from="/mogs_soth_pg/joint_angles" to="/joint_angles" />
+    </node>
+    
+    <node name="angle_traj_to_nao_gazebo" pkg="ros-mogs-soth-pg" type="angle_traj_to_nao_gazebo"/>
   
 </launch>

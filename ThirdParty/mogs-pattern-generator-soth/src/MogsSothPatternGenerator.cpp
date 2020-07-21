@@ -84,6 +84,7 @@ void MogsSothPatternGenerator::initialize_solver()
 
 void MogsSothPatternGenerator::read_constraint_xml( const mogs_string & filename)
 {
+     std::cout<<"MogsSothPatternGenerator::read_constraint_xml"<<std::endl;
     QFile * file = new QFile(filename);
     QDomDocument doc;
     if (!file->open(QIODevice::ReadOnly)) {
@@ -104,10 +105,12 @@ void MogsSothPatternGenerator::read_constraint_xml( const mogs_string & filename
     all_robots.push_back( new RigidBodyDynamics::MogsKinematics<double>(kin_->model));
     
     read_root_xml(&all_robots);
+    initialize_solver();
 }
 
 void MogsSothPatternGenerator::read_root_xml(std::vector< RigidBodyDynamics::MogsKinematics<double> *> * all_robots)
 {
+    std::cout<<"MogsSothPatternGenerator::read_root_xml"<<std::endl;
     // read the speed up coefficient
         QDomElement Elspeedup = root_.firstChildElement("speed_up");
         if(!Elspeedup.isNull())
@@ -116,8 +119,10 @@ void MogsSothPatternGenerator::read_root_xml(std::vector< RigidBodyDynamics::Mog
         test_derivative_ = false;
         QDomElement ElTestDeriv = root_.firstChildElement("test_derivative");
         if(!ElTestDeriv.isNull())
+        {
             test_derivative_ = convert_to_bool(ElTestDeriv.text());
-        std::cout<<"test_derivative_ = "<< ElTestDeriv.text().toStdString() <<std::endl;
+            std::cout<<"test_derivative_ = "<< ElTestDeriv.text().toStdString() <<std::endl;    
+        }
 	// read the constraints
 	int cpt = 0;
 
@@ -130,6 +135,7 @@ void MogsSothPatternGenerator::read_root_xml(std::vector< RigidBodyDynamics::Mog
 		create_soth_constraint* creator;
 		destroy_soth_constraint* destructor;
 		mogs_string ctr_type  = Elconstraint.toElement().attribute("type");
+                qDebug()<<" parsing condif ctr_type = "<< ctr_type;
 		if ( mpc.get_library_plugin("MogsSothPatternGeneratorConstraint",ctr_type,library_so))
 		{
 		    // load the library
@@ -244,7 +250,6 @@ bool MogsSothPatternGenerator::compute(		double time,
                         dq_(i) *= coeff_;
 			if ( ! std::isnan(dq_(i)))
 			{
-//			    std::cout<<"dq_ = "<<dq_.transpose()<<std::endl;
 				// FIXME take into account the actual limits
 				if (dq_(i)> dq_max_[i])
 					dq_(i) = dq_max_[i];

@@ -1,9 +1,0 @@
-#ifndef MogsPoolConstraint_CONFIG_H
-#define MogsPoolConstraint_CONFIG_H
-
-#define MogsPoolConstraint_VERSION_MAJOR @MogsPoolConstraint_VERSION_MAJOR@
-#define MogsPoolConstraint_VERSION_MINOR @MogsPoolConstraint_VERSION_MINOR@
-
-
-#endif
-

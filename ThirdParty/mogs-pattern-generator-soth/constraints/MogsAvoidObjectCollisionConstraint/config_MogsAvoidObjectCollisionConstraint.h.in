@@ -1,9 +1,0 @@
-#ifndef MogsAvoidObjectCollisionConstraint_CONFIG_H
-#define MogsAvoidObjectCollisionConstraint_CONFIG_H
-
-#define MogsAvoidObjectCollisionConstraint_VERSION_MAJOR @MogsAvoidObjectCollisionConstraint_VERSION_MAJOR@
-#define MogsAvoidObjectCollisionConstraint_VERSION_MINOR @MogsAvoidObjectCollisionConstraint_VERSION_MINOR@
-
-
-#endif
-

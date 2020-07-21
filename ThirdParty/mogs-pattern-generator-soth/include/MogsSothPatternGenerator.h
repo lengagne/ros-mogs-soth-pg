@@ -36,10 +36,9 @@ class MogsSothPatternGenerator: public MogsAbstractPatternGenerator
       public:
 	MogsSothPatternGenerator();
 
-	MogsSothPatternGenerator(
-                                    RigidBodyDynamics::MogsRobotProperties * this_robot,
-                                    std::vector< MogsAbstractSothConstraint * > constraints,
-                                    double coeff = 1.0
+	MogsSothPatternGenerator(	RigidBodyDynamics::MogsRobotProperties * this_robot,
+                                std::vector< MogsAbstractSothConstraint * > constraints,
+                                double coeff = 1.0
                                 );
 
 	~MogsSothPatternGenerator();

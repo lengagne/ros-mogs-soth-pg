@@ -10,3 +10,9 @@ git submodule update
 go in ThirdParty/soth and do
 git submodule init
 git submodule update
+
+To compile go in ThirdParty
+mkdir build
+cmake -DCMAKE_BUILd_TYPE=Release ..
+make 
+sudo make install
