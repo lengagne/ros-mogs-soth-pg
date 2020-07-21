@@ -1,0 +1,8 @@
+#ifndef MogsDefaultPatternGenerator_CONFIG_H
+#define MogsDefaultPatternGenerator_CONFIG_H
+
+#define VERSION_MAJOR @MogsDefaultPatternGenerator_VERSION_MAJOR@
+#define VERSION_MINOR @MogsDefaultPatternGenerator_VERSION_MINOR@
+
+#endif
+

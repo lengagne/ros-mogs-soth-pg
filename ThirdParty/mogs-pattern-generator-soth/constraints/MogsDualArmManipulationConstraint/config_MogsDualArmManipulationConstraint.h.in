@@ -1,0 +1,9 @@
+#ifndef MogsDualArmManipulationConstraint_CONFIG_H
+#define MogsDualArmManipulationConstraint_CONFIG_H
+
+#define MogsDualArmManipulationConstraint_VERSION_MAJOR @MogsDualArmManipulationConstraint_VERSION_MAJOR@
+#define MogsDualArmManipulationConstraint_VERSION_MINOR @MogsDualArmManipulationConstraint_VERSION_MINOR@
+
+
+#endif
+

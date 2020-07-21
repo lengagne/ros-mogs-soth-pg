@@ -1,0 +1,16 @@
+# - Config file for the MogsDualArmManipulationConstraint lib
+# It defines the following variables
+#
+# MogsDualArmManipulationConstraint_INCLUDE_DIRS - include directories
+# MogsDualArmManipulationConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# MogsDualArmManipulationConstraint_LIBRARIES - libraries to link against
+
+# Tell the user project where to find our headers and libraries
+
+set(MogsDualArmManipulationConstraint_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@ @MogsCore_INCLUDE_DIRS@)
+
+set(MogsDualArmManipulationConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@ @MogsCore_LIBRARY_DIRS@)
+
+set(MogsDualArmManipulationConstraint_LIBRARIES @MogsDualArmManipulationConstraint_LIBRARIES@ @MogsCore_LIBRARIES@)
+
+SET(MogsDualArmManipulationConstraint_FLAGS @MogsDualArmManipulationConstraint_FLAGS@ @MogsCore_FLAGS@)

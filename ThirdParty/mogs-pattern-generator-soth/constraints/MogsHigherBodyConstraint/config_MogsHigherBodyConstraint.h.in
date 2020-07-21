@@ -1,0 +1,9 @@
+#ifndef MogsHigherBodyConstraint_CONFIG_H
+#define MogsHigherBodyConstraint_CONFIG_H
+
+#define MogsHigherBodyConstraint_VERSION_MAJOR @MogsHigherBodyConstraint_VERSION_MAJOR@
+#define MogsHigherBodyConstraint_VERSION_MINOR @MogsHigherBodyConstraint_VERSION_MINOR@
+
+
+#endif
+

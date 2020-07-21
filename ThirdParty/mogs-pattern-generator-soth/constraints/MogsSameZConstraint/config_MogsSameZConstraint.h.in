@@ -1,0 +1,9 @@
+#ifndef MogsSameZConstraint_CONFIG_H
+#define MogsSameZConstraint_CONFIG_H
+
+#define MogsSameZConstraint_VERSION_MAJOR @MogsSameZConstraint_VERSION_MAJOR@
+#define MogsSameZConstraint_VERSION_MINOR @MogsSameZConstraint_VERSION_MINOR@
+
+
+#endif
+

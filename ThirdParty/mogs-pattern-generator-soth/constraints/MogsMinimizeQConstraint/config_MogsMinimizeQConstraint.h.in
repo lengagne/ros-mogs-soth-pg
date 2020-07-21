@@ -1,0 +1,9 @@
+#ifndef MogsMinimizeQConstraint_CONFIG_H
+#define MogsMinimizeQConstraint_CONFIG_H
+
+#define MogsMinimizeQConstraint_VERSION_MAJOR @MogsMinimizeQConstraint_VERSION_MAJOR@
+#define MogsMinimizeQConstraint_VERSION_MINOR @MogsMinimizeQConstraint_VERSION_MINOR@
+
+
+#endif
+

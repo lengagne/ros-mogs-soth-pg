@@ -1,0 +1,9 @@
+#ifndef MogsJointLimitConstraint_CONFIG_H
+#define MogsJointLimitConstraint_CONFIG_H
+
+#define MogsJointLimitConstraint_VERSION_MAJOR @MogsJointLimitConstraint_VERSION_MAJOR@
+#define MogsJointLimitConstraint_VERSION_MINOR @MogsJointLimitConstraint_VERSION_MINOR@
+
+
+#endif
+

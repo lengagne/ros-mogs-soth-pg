@@ -1,0 +1,16 @@
+# - Config file for the MogsCenterOfMassConstraint lib
+# It defines the following variables
+#
+# MogsCenterOfMassConstraint_INCLUDE_DIRS - include directories
+# MogsCenterOfMassConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# MogsCenterOfMassConstraint_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(MogsCenterOfMassConstraint_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@ @MogsCore_INCLUDE_DIRS@)
+
+set(MogsCenterOfMassConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@ @MogsCore_LIBRARY_DIRS@)
+
+set(MogsCenterOfMassConstraint_LIBRARIES @MogsCenterOfMassConstraint_LIBRARIES@ @MogsCore_LIBRARIES@)
+
+SET(MogsCenterOfMassConstraint_FLAGS @MogsCenterOfMassConstraint_FLAGS@ @MogsCore_FLAGS@)

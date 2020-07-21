@@ -1,0 +1,16 @@
+# - Config file for the MogsEndEffectorConstraint lib
+# It defines the following variables
+#
+# MogsEndEffectorConstraint_INCLUDE_DIRS - include directories
+# MogsEndEffectorConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# MogsEndEffectorConstraint_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(MogsEndEffectorConstraint_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@ @MogsCore_INCLUDE_DIRS@)
+
+set(MogsEndEffectorConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@ @MogsCore_LIBRARY_DIRS@)
+
+set(MogsEndEffectorConstraint_LIBRARIES @MogsEndEffectorConstraint_LIBRARIES@ @MogsCore_LIBRARIES@)
+
+SET(MogsEndEffectorConstraint_FLAGS @MogsEndEffectorConstraint_FLAGS@ @MogsCore_FLAGS@)

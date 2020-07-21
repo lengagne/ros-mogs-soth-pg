@@ -1,0 +1,2 @@
+add_subdirectory(	MogsDefaultPatternGenerator)
+add_subdirectory(	MogsIKPatternGenerator)

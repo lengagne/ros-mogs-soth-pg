@@ -1,0 +1,16 @@
+# - Config file for the MogsSelfCollisionConstraint lib
+# It defines the following variables
+#
+# MogsSelfCollisionConstraint_INCLUDE_DIRS - include directories
+# MogsSelfCollisionConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# MogsSelfCollisionConstraint_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(MogsSelfCollisionConstraint_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@ @MogsCore_INCLUDE_DIRS@)
+
+set(MogsSelfCollisionConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@ @MogsCore_LIBRARY_DIRS@)
+
+set(MogsSelfCollisionConstraint_LIBRARIES @MogsSelfCollisionConstraint_LIBRARIES@ @MogsCore_LIBRARIES@)
+
+SET(MogsSelfCollisionConstraint_FLAGS @MogsSelfCollisionConstraint_FLAGS@ @MogsCore_FLAGS@)

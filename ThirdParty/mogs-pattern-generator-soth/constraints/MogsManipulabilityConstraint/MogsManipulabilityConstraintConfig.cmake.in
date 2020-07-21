@@ -1,0 +1,16 @@
+# - Config file for the MogsManipulabilityConstraint lib
+# It defines the following variables
+#
+# MogsManipulabilityConstraint_INCLUDE_DIRS - include directories
+# MogsManipulabilityConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# MogsManipulabilityConstraint_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(MogsManipulabilityConstraint_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@ @MogsCore_INCLUDE_DIRS@)
+
+set(MogsManipulabilityConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@ @MogsCore_LIBRARY_DIRS@)
+
+set(MogsManipulabilityConstraint_LIBRARIES @MogsManipulabilityConstraint_LIBRARIES@ @MogsCore_LIBRARIES@)
+
+SET(MogsManipulabilityConstraint_FLAGS @MogsManipulabilityConstraint_FLAGS@ @MogsCore_FLAGS@)

@@ -1,0 +1,8 @@
+#ifndef MogsIKPatternGenerator_CONFIG_H
+#define MogsIKPatternGenerator_CONFIG_H
+
+#define VERSION_MAJOR @MogsIKPatternGenerator_VERSION_MAJOR@
+#define VERSION_MINOR @MogsIKPatternGenerator_VERSION_MINOR@
+
+#endif
+

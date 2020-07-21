@@ -1,0 +1,16 @@
+# - Config file for the MogsIKPatternGenerator lib
+# It defines the following variables
+#
+# MogsIKPatternGenerator_INCLUDE_DIRS - include directories
+# MogsIKPatternGenerator_LIBRARY_DIRS - library directory (normally not used!)
+# MogsIKPatternGenerator_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(MogsIKPatternGenerator_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@)
+
+set(MogsIKPatternGenerator_LIBRARY_DIRS  @INSTALL_LIB_DIRS@)
+
+set(MogsIKPatternGenerator_LIBRARIES @MogsIKPatternGenerator_LIBRARIES@)
+
+SET(MogsIKPatternGenerator_FLAGS @MogsIKPatternGenerator_FLAGS@)

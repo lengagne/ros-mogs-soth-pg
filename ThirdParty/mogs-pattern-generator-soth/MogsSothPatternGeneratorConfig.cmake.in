@@ -1,0 +1,16 @@
+# - Config file for the MogsSothPatternGenerator lib
+# It defines the following variables
+#
+# MogsSothPatternGenerator_INCLUDE_DIRS - include directories
+# MogsSothPatternGenerator_LIBRARY_DIRS - library directory (normally not used!)
+# MogsSothPatternGenerator_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(MogsSothPatternGenerator_INCLUDE_DIRS  @MogsSothPatternGenerator_INCLUDE_DIRS@)
+
+set(MogsSothPatternGenerator_LIBRARY_DIRS  @INSTALL_LIB_DIRS@)
+
+set(MogsSothPatternGenerator_LIBRARIES @MogsSothPatternGenerator_LIBRARIES@)
+
+SET(MogsSothPatternGenerator_FLAGS @MogsSothPatternGenerator_FLAGS@)

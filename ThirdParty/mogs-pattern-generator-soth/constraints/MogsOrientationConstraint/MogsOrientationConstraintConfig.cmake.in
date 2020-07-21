@@ -1,0 +1,16 @@
+# - Config file for the MogsOrientationConstraint lib
+# It defines the following variables
+#
+# MogsOrientationConstraint_INCLUDE_DIRS - include directories
+# MogsOrientationConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# MogsOrientationConstraint_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(MogsOrientationConstraint_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@ @MogsCore_INCLUDE_DIRS@)
+
+set(MogsOrientationConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@ @MogsCore_LIBRARY_DIRS@)
+
+set(MogsOrientationConstraint_LIBRARIES @MogsOrientationConstraint_LIBRARIES@ @MogsCore_LIBRARIES@)
+
+SET(MogsOrientationConstraint_FLAGS @MogsOrientationConstraint_FLAGS@ @MogsCore_FLAGS@)

@@ -1,0 +1,16 @@
+# - Config file for the MogsLookingAtConstraint lib
+# It defines the following variables
+#
+# MogsLookingAtConstraint_INCLUDE_DIRS - include directories
+# MogsLookingAtConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# MogsLookingAtConstraint_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(MogsLookingAtConstraint_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@ @MogsCore_INCLUDE_DIRS@)
+
+set(MogsLookingAtConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@ @MogsCore_LIBRARY_DIRS@)
+
+set(MogsLookingAtConstraint_LIBRARIES @MogsLookingAtConstraint_LIBRARIES@ @MogsCore_LIBRARIES@)
+
+SET(MogsLookingAtConstraint_FLAGS @MogsLookingAtConstraint_FLAGS@ @MogsCore_FLAGS@)

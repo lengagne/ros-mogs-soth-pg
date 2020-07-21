@@ -1,0 +1,9 @@
+#ifndef MogsManipulabilityConstraint_CONFIG_H
+#define MogsManipulabilityConstraint_CONFIG_H
+
+#define MogsManipulabilityConstraint_VERSION_MAJOR @MogsManipulabilityConstraint_VERSION_MAJOR@
+#define MogsManipulabilityConstraint_VERSION_MINOR @MogsManipulabilityConstraint_VERSION_MINOR@
+
+
+#endif
+

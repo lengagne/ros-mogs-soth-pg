@@ -1,0 +1,9 @@
+#ifndef MogsCenterOfMassConstraint_CONFIG_H
+#define MogsCenterOfMassConstraint_CONFIG_H
+
+#define MogsCenterOfMassConstraint_VERSION_MAJOR @MogsCenterOfMassConstraint_VERSION_MAJOR@
+#define MogsCenterOfMassConstraint_VERSION_MINOR @MogsCenterOfMassConstraint_VERSION_MINOR@
+
+
+#endif
+

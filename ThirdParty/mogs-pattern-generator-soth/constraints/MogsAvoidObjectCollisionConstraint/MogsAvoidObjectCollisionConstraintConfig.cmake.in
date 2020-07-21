@@ -1,0 +1,16 @@
+# - Config file for the MogsAvoidObjectCollisionConstraint lib
+# It defines the following variables
+#
+# MogsAvoidObjectCollisionConstraint_INCLUDE_DIRS - include directories
+# MogsAvoidObjectCollisionConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# MogsAvoidObjectCollisionConstraint_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(MogsAvoidObjectCollisionConstraint_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@ @MogsCore_INCLUDE_DIRS@)
+
+set(MogsAvoidObjectCollisionConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@ @MogsCore_LIBRARY_DIRS@)
+
+set(MogsAvoidObjectCollisionConstraint_LIBRARIES @MogsAvoidObjectCollisionConstraint_LIBRARIES@ @MogsCore_LIBRARIES@)
+
+SET(MogsAvoidObjectCollisionConstraint_FLAGS @MogsAvoidObjectCollisionConstraint_FLAGS@ @MogsCore_FLAGS@)

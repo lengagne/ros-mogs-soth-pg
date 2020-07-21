@@ -1,0 +1,10 @@
+#ifndef MogsPatternGenerator_CONFIG_H
+#define MogsPatternGenerator_CONFIG_H
+
+#define VERSION_MAJOR @MogsPatternGenerator_VERSION_MAJOR@
+#define VERSION_MINOR @MogsPatternGenerator_VERSION_MINOR@
+
+#define MOGS_PROBLEM_PG_VIEWER_XSD_FILE "@CMAKE_BINARY_DIR@/data/xsd/MogsPGViewerProblem.xsd"
+
+#endif
+

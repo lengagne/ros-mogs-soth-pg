@@ -1,0 +1,9 @@
+#ifndef MogsOrientationConstraint_CONFIG_H
+#define MogsOrientationConstraint_CONFIG_H
+
+#define MogsOrientationConstraint_VERSION_MAJOR @MogsOrientationConstraint_VERSION_MAJOR@
+#define MogsOrientationConstraint_VERSION_MINOR @MogsOrientationConstraint_VERSION_MINOR@
+
+
+#endif
+

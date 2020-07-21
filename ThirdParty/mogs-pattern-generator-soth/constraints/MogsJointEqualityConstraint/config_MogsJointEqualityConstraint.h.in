@@ -1,0 +1,9 @@
+#ifndef MogsJointEqualityConstraint_CONFIG_H
+#define MogsJointEqualityConstraint_CONFIG_H
+
+#define MogsJointEqualityConstraint_VERSION_MAJOR @MogsJointEqualityConstraint_VERSION_MAJOR@
+#define MogsJointEqualityConstraint_VERSION_MINOR @MogsJointEqualityConstraint_VERSION_MINOR@
+
+
+#endif
+

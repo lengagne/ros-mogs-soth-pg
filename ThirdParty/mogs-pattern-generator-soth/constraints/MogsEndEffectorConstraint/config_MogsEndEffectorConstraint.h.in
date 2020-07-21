@@ -1,0 +1,9 @@
+#ifndef MogsEndEffectorConstraint_CONFIG_H
+#define MogsEndEffectorConstraint_CONFIG_H
+
+#define MogsEndEffectorConstraint_VERSION_MAJOR @MogsEndEffectorConstraint_VERSION_MAJOR@
+#define MogsEndEffectorConstraint_VERSION_MINOR @MogsEndEffectorConstraint_VERSION_MINOR@
+
+
+#endif
+

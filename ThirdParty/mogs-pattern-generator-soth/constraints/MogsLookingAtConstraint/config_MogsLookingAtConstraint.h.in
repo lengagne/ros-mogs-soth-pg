@@ -1,0 +1,9 @@
+#ifndef MogsLookingAtConstraint_CONFIG_H
+#define MogsLookingAtConstraint_CONFIG_H
+
+#define MogsLookingAtConstraint_VERSION_MAJOR @MogsLookingAtConstraint_VERSION_MAJOR@
+#define MogsLookingAtConstraint_VERSION_MINOR @MogsLookingAtConstraint_VERSION_MINOR@
+
+
+#endif
+
