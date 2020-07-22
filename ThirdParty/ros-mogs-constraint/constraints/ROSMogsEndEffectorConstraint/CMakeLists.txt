@@ -35,24 +35,16 @@ if(NOT MogsEndEffectorConstraint_FOUND)
 find_package(MogsEndEffectorConstraint REQUIRED)
 endif(NOT MogsEndEffectorConstraint_FOUND)
 
-find_package(catkin REQUIRED COMPONENTS roscpp geometry_msgs std_msgs)
+if(NOT ROSMogsConstraint_FOUND)
+find_package(ROSMogsConstraint REQUIRED)
+endif(NOT ROSMogsConstraint_FOUND)
 
-
-# C++0x support - not quite the same as final C++11!
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-
-# catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES ros-mogs-soth-pg
-#  CATKIN_DEPENDS other_catkin_pkg
-#  DEPENDS system_lib
-# )
 
 
 include_directories (
 	include
 	${MogsEndEffectorConstraint_INCLUDE_DIRS}
-	${catkin_INCLUDE_DIRS}
+	${ROSMogsConstraint_INCLUDE_DIRS}
 )
 
 configure_file ("${PROJECT_SOURCE_DIR}/config_ROSMogsEndEffectorConstraint.h.in"
@@ -73,11 +65,9 @@ ADD_LIBRARY(	ROSMogsEndEffectorConstraint SHARED
 
 target_link_libraries( ROSMogsEndEffectorConstraint
 			${MogsEndEffectorConstraint_LIBRARIES}
-                        ${catkin_LIBRARIES}
+                        ${ROSMogsConstraint_LIBRARIES}
 			)
 
-                
-#
 # install the include files
 SET(INSTALL_INCLUDE_DIRS ${CMAKE_INSTALL_INCLUDEDIR}/include/Mogs2/ROSMogsEndEffectorConstraint)
 SET(INSTALL_LIB_DIRS ${CMAKE_INSTALL_LIBDIR}/lib )
@@ -91,7 +81,7 @@ install( TARGETS ROSMogsEndEffectorConstraint LIBRARY DESTINATION ${INSTALL_LIB_
 ### Configure file
 get_property(Include_Directories DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
 SET(ROSMogsEndEffectorConstraint_INCLUDE_DIRS  ${Include_Directories} CACHE INTERNAL "")
-SET(ROSMogsEndEffectorConstraint_LIBRARIES  ROSMogsEndEffectorConstraint ${MogsEndEffectorConstraint_FLAGS} CACHE INTERNAL "")
+SET(ROSMogsEndEffectorConstraint_LIBRARIES ROSMogsConstraint ROSMogsEndEffectorConstraint ${MogsEndEffectorConstraint_FLAGS} CACHE INTERNAL "")
 SET(ROSMogsEndEffectorConstraint_FLAGS "-DROSMogsEndEffectorConstraint_FOUND " CACHE INTERNAL "")
 SET(ROSMogsEndEffectorConstraint_FOUND "TRUE" CACHE INTERNAL "")
 add_definitions(${ROSMogsEndEffectorConstraint_FLAGS})

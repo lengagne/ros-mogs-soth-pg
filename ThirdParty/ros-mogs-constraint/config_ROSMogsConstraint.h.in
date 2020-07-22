@@ -1,0 +1,8 @@
+#ifndef ROSMogsConstraint_CONFIG_H
+#define ROSMogsConstraint_CONFIG_H
+
+#define VERSION_MAJOR @ROSMogsConstraint_VERSION_MAJOR@
+#define VERSION_MINOR @ROSMogsConstraint_VERSION_MINOR@
+
+#endif
+

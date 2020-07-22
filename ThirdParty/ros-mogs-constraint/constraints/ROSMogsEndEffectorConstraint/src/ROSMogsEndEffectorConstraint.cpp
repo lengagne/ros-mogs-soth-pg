@@ -28,14 +28,12 @@
 ROSMogsEndEffectorConstraint::ROSMogsEndEffectorConstraint(	QDomElement pg_root,
                                                         RigidBodyDynamics::MogsKinematics<F<double> >* kin,
                                                         std::vector< RigidBodyDynamics::MogsKinematics< double > * >* all_the_robots ):
-                                                        MogsEndEffectorConstraint(pg_root,kin,all_the_robots) ,n("~")
-{
-    
-    
-//         sub = n.subscribe<geometry_msgs::Pose>("/MogsEndEffectorConstraint/Pose", 5, &ROSMogsEndEffectorConstraint::callback,this);
-//     sub = n.subscribe<geometry_msgs::Pose>("/MogsEndEffectorConstraint/Pose", 5, appel);
+                                                        MogsEndEffectorConstraint(pg_root,kin,all_the_robots),ROSConstraint(pg_root) ,n("~")
 
-        pub = n.advertise<std_msgs::Float64> ("/MogsEndEffectorConstraint/Error", 500);    
+{
+    positions_.resize(1);
+    sub = n.subscribe(topic_name_ + "/Pose", 5, &ROSMogsEndEffectorConstraint::callback,this);
+    pub = n.advertise<std_msgs::Float64> ( topic_name_ + "/Error", 500);    
 }
 
 ROSMogsEndEffectorConstraint::~ROSMogsEndEffectorConstraint()
@@ -43,11 +41,26 @@ ROSMogsEndEffectorConstraint::~ROSMogsEndEffectorConstraint()
 
 }
 
-// void ROSMogsEndEffectorConstraint::callback( const geometry_msgs::Pose & msg)
-// {
-//     ROS_INFO("receive new pose");
-//     
-// }
+void ROSMogsEndEffectorConstraint::compute( Eigen::Matrix <F<double>,Eigen::Dynamic, 1 > &Q,  
+                                            RigidBodyDynamics::MogsKinematics<F<double> > * kin,
+                                            HQPSolver::Priority* task_info,
+                                            std::vector< RigidBodyDynamics::MogsKinematics< double > *>*all_the_robots)
+{
+    MogsEndEffectorConstraint::compute(Q,kin,task_info,all_the_robots);
+    //publish the error
+    output_msg_.data = distance_;
+    pub.publish(output_msg_);
+    
+}
+
+void ROSMogsEndEffectorConstraint::callback( const geometry_msgs::Point & msg)
+{
+    ROS_INFO("receive new pose");   
+    desired_position_(0) = msg.x;
+    desired_position_(1) = msg.y;
+    desired_position_(2) = msg.z;
+    
+}
 
 extern "C" ROSMogsEndEffectorConstraint* create(   QDomElement pg_root,
                                                 RigidBodyDynamics::MogsKinematics<F<double> >* kin,

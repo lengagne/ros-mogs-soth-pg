@@ -87,10 +87,10 @@ class MogsEndEffectorConstraint: public MogsAbstractSothConstraint
 
 	~MogsEndEffectorConstraint();
 
-	void compute(	Eigen::Matrix <F<double>,Eigen::Dynamic, 1 > &Q,
-			RigidBodyDynamics::MogsKinematics<F<double> > * kin,
-			HQPSolver::Priority* task_info,
-			std::vector< RigidBodyDynamics::MogsKinematics< double > *>*all_the_robots = NULL);
+	virtual void compute(	Eigen::Matrix <F<double>,Eigen::Dynamic, 1 > &Q,
+                                RigidBodyDynamics::MogsKinematics<F<double> > * kin,
+                                HQPSolver::Priority* task_info,
+                                std::vector< RigidBodyDynamics::MogsKinematics< double > *>*all_the_robots = NULL);
         
         Eigen::Matrix<double,3,1> get_current_effector_position()const
         {
@@ -127,17 +127,19 @@ class MogsEndEffectorConstraint: public MogsAbstractSothConstraint
 	    return distance_;
 	}
 
-      private:
+protected:
 
 	Eigen::Matrix < double,3, 1 > desired_position_;
+        std::vector< Eigen::Matrix < double,3, 1 > > positions_;
+        double distance_;
+        
+private:
 	Eigen::Matrix < double,3, 1 > effector_position_;
         
         Eigen::Matrix<double,3,1> current_effector_position_;
 	unsigned int body_id_;
         unsigned int body_ref_;
 
-
-	std::vector< Eigen::Matrix < double,3, 1 > > positions_;
 	int count_position_;
 	Eigen::Matrix < F<double>,3, 1 > Ftmp_, Ftmp2_;
         SpatialTransform<F<double> > ref_trans_,ref_trans2_;
@@ -153,7 +155,6 @@ class MogsEndEffectorConstraint: public MogsAbstractSothConstraint
 
 	mode desired_mode_;
 
-	double distance_;
         double threshold_;
         
         unsigned int nb_compute_without_modif_;

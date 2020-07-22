@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pattern_generator type="MogsSothPatternGenerator">
-    <speed_up> 2.0 </speed_up>
+    <speed_up> 5.0 </speed_up>
 <!--           <test_derivative> true </test_derivative> -->
     <constraint type="JointLimitConstraint"/>    
     
@@ -9,19 +9,26 @@
         <body2> l_ankle</body2>
         <position> 0 -0.1 0 </position>
         <rotation> 0 0 0 </rotation>
-    </constraint>      
+    </constraint>     
+    
+    <constraint type="CenterOfMassConstraint">
+        <ref_body> r_ankle</ref_body>
+        <Xmin>-0.03</Xmin>
+        <Xmax> 0.10</Xmax>
+        <Ymin>-0.02</Ymin>
+        <Ymax> 0.12</Ymax>                
+    </constraint>    
     
     <constraint type="ROSEndEffectorConstraint">
         <body>  r_wrist </body>
         <ref_body> l_ankle </ref_body>
         <position> 0.05 0 0.0 </position>
         <threshold> 0.00 </threshold>
+        <!-- this is the default value -->
         <desired type="values">
-            <value>  0.15 -0.05 0.05</value>
-            <value>  0.15 -0.2 0.05</value>      
-            <value>  0.15 -0.05 -0.1</value>
-            <value>  0.15 -0.2 -0.1</value>                              
+            <value>  0.15 -0.05 0.05</value>                        
         </desired>
+        <topic_name> /right_wrist_end_effector </topic_name>
     </constraint>	
-        <constraint type="MinimizeQConstraint"/> 
+    <constraint type="MinimizeQConstraint"/> 
 </pattern_generator>

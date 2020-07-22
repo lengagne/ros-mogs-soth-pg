@@ -1,0 +1,16 @@
+# - Config file for the ROSMogsConstraint lib
+# It defines the following variables
+#
+# ROSMogsConstraint_INCLUDE_DIRS - include directories
+# ROSMogsConstraint_LIBRARY_DIRS - library directory (normally not used!)
+# ROSMogsConstraint_LIBRARIES - libraries to link against
+ 
+# Tell the user project where to find our headers and libraries
+
+set(ROSMogsConstraint_INCLUDE_DIRS  @ROSMogsConstraint_INCLUDE_DIRS@)
+
+set(ROSMogsConstraint_LIBRARY_DIRS  @INSTALL_LIB_DIRS@)
+
+set(ROSMogsConstraint_LIBRARIES @ROSMogsConstraint_LIBRARIES@)
+
+SET(ROSMogsConstraint_FLAGS @ROSMogsConstraint_FLAGS@)

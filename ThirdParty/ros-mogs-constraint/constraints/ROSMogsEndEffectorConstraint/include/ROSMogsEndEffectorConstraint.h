@@ -15,20 +15,17 @@
 //      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //      This program was developped in the following labs:
-//      2009-2011:  Joint robotics Laboratory - CNRS/AISdouble,Tsukuba, Japan.
-//      2011-2012:  Karlsruhe Institute fur Technologie, Karlsruhe, Germany
-//      2012-2013:  IUT de Beziers/ LIRMM, Beziers, France
-//	from 2013:  Université Blaise Pascal / axis : ISPR / theme MACCS
+//	from 2020:  Université Clermont Auvergne / Pascal Institute / axis : ISPR / theme MACCS
 
 #ifndef __ROSMOGSEndEffectorConstraint__
 #define __ROSMOGSEndEffectorConstraint__
 
 #include "MogsEndEffectorConstraint.h"
-#include <ros/ros.h>
+#include "ROSConstraint.h"
 #include "geometry_msgs/Pose.h"
 #include "std_msgs/Float64.h"
 
-class ROSMogsEndEffectorConstraint: public MogsEndEffectorConstraint
+class ROSMogsEndEffectorConstraint: public MogsEndEffectorConstraint, public ROSConstraint
 {
       public:
 
@@ -38,12 +35,19 @@ class ROSMogsEndEffectorConstraint: public MogsEndEffectorConstraint
 
 	~ROSMogsEndEffectorConstraint();
         
-//         void callback( const geometry_msgs::Pose & msg);
+        void callback( const geometry_msgs::Point & msg);
+        
+        virtual void compute(	Eigen::Matrix <F<double>,Eigen::Dynamic, 1 > &Q,  
+                                RigidBodyDynamics::MogsKinematics<F<double> > * kin,
+                                HQPSolver::Priority* task_info,
+                                std::vector< RigidBodyDynamics::MogsKinematics< double > *>*all_the_robots = NULL);        
 
       private:
         ros::Publisher pub;
         ros::Subscriber sub;
         ros::NodeHandle n;
+        
+        std_msgs::Float64 output_msg_;
 };
 
 
