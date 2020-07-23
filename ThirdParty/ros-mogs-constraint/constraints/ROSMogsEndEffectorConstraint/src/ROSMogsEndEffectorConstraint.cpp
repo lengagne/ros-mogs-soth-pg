@@ -32,7 +32,7 @@ ROSMogsEndEffectorConstraint::ROSMogsEndEffectorConstraint(	QDomElement pg_root,
 
 {
     positions_.resize(1);
-    sub = n.subscribe(topic_name_ + "/Pose", 5, &ROSMogsEndEffectorConstraint::callback,this);
+    sub = n.subscribe(topic_name_ + "/Point", 5, &ROSMogsEndEffectorConstraint::callback,this);
     pub = n.advertise<std_msgs::Float64> ( topic_name_ + "/Error", 500);    
 }
 

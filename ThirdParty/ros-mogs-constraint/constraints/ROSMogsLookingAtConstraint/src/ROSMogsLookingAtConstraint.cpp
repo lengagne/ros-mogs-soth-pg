@@ -32,7 +32,7 @@ ROSMogsLookingAtConstraint::ROSMogsLookingAtConstraint(	QDomElement pg_root,
 
 {
     desired_positions_.resize(1);
-    sub = n.subscribe(topic_name_ + "/Pose", 5, &ROSMogsLookingAtConstraint::callback,this);
+    sub = n.subscribe(topic_name_ + "/Point", 5, &ROSMogsLookingAtConstraint::callback,this);
     pub = n.advertise<std_msgs::Float64> ( topic_name_ + "/Error", 500);    
     
     std::cout<<"Constructor of ROSMogsLookingAtConstraint ends"<<std::endl;
