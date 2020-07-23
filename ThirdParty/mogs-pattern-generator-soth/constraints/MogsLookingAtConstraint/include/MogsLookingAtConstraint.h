@@ -89,17 +89,19 @@ class MogsLookingAtConstraint: public MogsAbstractSothConstraint
 	    return distance_;
 	}
 
+    protected:
+	Eigen::Matrix < double,3, 1 > desired_position_;
+        std::vector< Eigen::Matrix < double,3, 1 > > desired_positions_;
+        double distance_;
+        
       private:
 
-	Eigen::Matrix < double,3, 1 > desired_position_;
 	Eigen::Matrix < double,3, 1 > pos1_,pos2_;
         Eigen::Matrix<double,3,1> current_effector_position_;
         
 	unsigned int body_id_;
         unsigned int body_ref_;
 
-
-	std::vector< Eigen::Matrix < double,3, 1 > > desired_positions_;
 	int count_position_;
 	Eigen::Matrix < F<double>,3, 1 > Ftmp1_, Ftmp2_, Ftmp_target_;
 
@@ -107,7 +109,6 @@ class MogsLookingAtConstraint: public MogsAbstractSothConstraint
 	int target_robot_id_;
 	int target_body_id_;
 
-	double distance_;
 };
 
 

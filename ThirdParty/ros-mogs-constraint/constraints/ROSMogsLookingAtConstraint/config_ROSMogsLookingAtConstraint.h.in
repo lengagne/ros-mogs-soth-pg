@@ -1,0 +1,9 @@
+#ifndef ROSMogsLookingAtConstraint_CONFIG_H
+#define ROSMogsLookingAtConstraint_CONFIG_H
+
+#define ROSMogsLookingAtConstraint_VERSION_MAJOR @ROSMogsLookingAtConstraint_VERSION_MAJOR@
+#define ROSMogsLookingAtConstraint_VERSION_MINOR @ROSMogsLookingAtConstraint_VERSION_MINOR@
+
+
+#endif
+
