@@ -40,7 +40,6 @@ find_package(ROSMogsConstraint REQUIRED)
 endif(NOT ROSMogsConstraint_FOUND)
 
 
-
 include_directories (
 	include
 	${MogsEndEffectorConstraint_INCLUDE_DIRS}
@@ -82,7 +81,7 @@ install( TARGETS ROSMogsEndEffectorConstraint LIBRARY DESTINATION ${INSTALL_LIB_
 get_property(Include_Directories DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
 SET(ROSMogsEndEffectorConstraint_INCLUDE_DIRS  ${Include_Directories} CACHE INTERNAL "")
 SET(ROSMogsEndEffectorConstraint_LIBRARIES ROSMogsConstraint ROSMogsEndEffectorConstraint ${MogsEndEffectorConstraint_FLAGS} CACHE INTERNAL "")
-SET(ROSMogsEndEffectorConstraint_FLAGS "-DROSMogsEndEffectorConstraint_FOUND " CACHE INTERNAL "")
+SET(ROSMogsEndEffectorConstraint_FLAGS "-DROSMogsEndEffectorConstraint_FOUND" CACHE INTERNAL "")
 SET(ROSMogsEndEffectorConstraint_FOUND "TRUE" CACHE INTERNAL "")
 add_definitions(${ROSMogsEndEffectorConstraint_FLAGS})
 #  add flags (done before)
