@@ -2,7 +2,7 @@
 
 ROSConstraint::ROSConstraint(   QDomElement pg_root)
 {
-    std::cout<<"ici on doit lire le topic"<<std::endl;
+//    std::cout<<"ici on doit lire le topic"<<std::endl;
     QDomElement ElTopicName = pg_root.firstChildElement("topic_name");
     if (ElTopicName.isNull())
     {

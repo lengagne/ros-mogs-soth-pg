@@ -59,7 +59,8 @@ void ROSMogsEndEffectorConstraint::callback( const geometry_msgs::Point & msg)
     desired_position_(0) = msg.x;
     desired_position_(1) = msg.y;
     desired_position_(2) = msg.z;
-    
+
+    positions_[0] = desired_position_;    
 }
 
 extern "C" ROSMogsEndEffectorConstraint* create(   QDomElement pg_root,

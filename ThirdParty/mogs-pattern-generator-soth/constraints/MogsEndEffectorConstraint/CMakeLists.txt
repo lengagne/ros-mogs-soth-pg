@@ -86,7 +86,7 @@ install( TARGETS MogsEndEffectorConstraint LIBRARY DESTINATION ${INSTALL_LIB_DIR
 get_property(Include_Directories DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
 SET(MogsEndEffectorConstraint_INCLUDE_DIRS  ${Include_Directories} CACHE INTERNAL "")
 SET(MogsEndEffectorConstraint_LIBRARIES  MogsEndEffectorConstraint CACHE INTERNAL "")
-SET(MogsEndEffectorConstraint_FLAGS "-DMogsEndEffectorConstraint_FOUND ${IPOPT_FLAGS}" CACHE INTERNAL "")
+SET(MogsEndEffectorConstraint_FLAGS "-DMogsEndEffectorConstraint_FOUND" CACHE INTERNAL "")
 SET(MogsEndEffectorConstraint_FOUND "TRUE" CACHE INTERNAL "")
 add_definitions(${MogsEndEffectorConstraint_FLAGS} ${MogsJoystick_FLAGS})
 #  add flags (done before)

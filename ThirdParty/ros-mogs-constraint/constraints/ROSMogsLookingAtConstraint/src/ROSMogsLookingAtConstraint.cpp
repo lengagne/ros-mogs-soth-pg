@@ -59,7 +59,8 @@ void ROSMogsLookingAtConstraint::callback( const geometry_msgs::Point & msg)
     desired_position_(0) = msg.x;
     desired_position_(1) = msg.y;
     desired_position_(2) = msg.z;
-    
+
+    desired_positions_[0] = desired_position_;   
 }
 
 extern "C" ROSMogsLookingAtConstraint* create(   QDomElement pg_root,

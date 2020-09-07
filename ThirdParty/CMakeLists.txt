@@ -40,7 +40,8 @@ set (INSTALL_LIB_DIRS ${CMAKE_INSTALL_LIBDIR}lib)
 
 set (LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib/${CMAKE_BUILD_TYPE})
 
-add_subdirectory(soth)
+# add_subdirectory(soth)
+
 
 add_subdirectory(mogs-utils)
 add_subdirectory(mogs-3dobjects)

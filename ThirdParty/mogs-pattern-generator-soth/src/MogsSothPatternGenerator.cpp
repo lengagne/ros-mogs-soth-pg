@@ -135,7 +135,7 @@ void MogsSothPatternGenerator::read_root_xml(std::vector< RigidBodyDynamics::Mog
 		create_soth_constraint* creator;
 		destroy_soth_constraint* destructor;
 		mogs_string ctr_type  = Elconstraint.toElement().attribute("type");
-                qDebug()<<" parsing condif ctr_type = "<< ctr_type;
+                qDebug()<<" parsing config ctr_type = "<< ctr_type;
 		if ( mpc.get_library_plugin("MogsSothPatternGeneratorConstraint",ctr_type,library_so))
 		{
 		    // load the library
