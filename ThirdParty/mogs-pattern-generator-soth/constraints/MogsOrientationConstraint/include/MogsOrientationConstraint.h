@@ -26,11 +26,16 @@
 #include "MogsKinematics.h"
 #include "MogsAbstractSothConstraint.h"
 
+
+#ifndef __MOGSEndEffectorConstraint__
+#define __MOGSEndEffectorConstraint__
 enum mode{
 	DESIRED,	// set of desired position
 	JOYSTICK,	// the desired position is given by a joystick
 	BODY		// the desired position is one of an other robot body
 };
+#endif
+
 
 class MogsOrientationConstraint: public MogsAbstractSothConstraint
 {
