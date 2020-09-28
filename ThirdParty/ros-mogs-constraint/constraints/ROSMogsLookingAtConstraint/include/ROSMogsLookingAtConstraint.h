@@ -44,6 +44,7 @@ class ROSMogsLookingAtConstraint: public MogsLookingAtConstraint, public ROSCons
 
       private:
         ros::Publisher pub;
+        ros::Publisher pub_desired;
         ros::Subscriber sub;
         ros::NodeHandle n;
         

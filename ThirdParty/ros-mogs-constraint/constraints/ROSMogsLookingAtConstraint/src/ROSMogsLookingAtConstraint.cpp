@@ -32,8 +32,9 @@ ROSMogsLookingAtConstraint::ROSMogsLookingAtConstraint(	QDomElement pg_root,
 
 {
     desired_positions_.resize(1);
-    sub = n.subscribe(topic_name_ + "/Point", 5, &ROSMogsLookingAtConstraint::callback,this);
-    pub = n.advertise<std_msgs::Float64> ( topic_name_ + "/Error", 500);    
+    sub = n.subscribe(topic_name_ + "/Point", 10, &ROSMogsLookingAtConstraint::callback,this);
+    pub = n.advertise<std_msgs::Float64> ( topic_name_ + "/Error", 1);    
+    pub_desired = n.advertise<geometry_msgs::Point> ( topic_name_ + "/Desired", 1);        
 }
 
 ROSMogsLookingAtConstraint::~ROSMogsLookingAtConstraint()
@@ -50,7 +51,12 @@ void ROSMogsLookingAtConstraint::compute( Eigen::Matrix <F<double>,Eigen::Dynami
     //publish the error
     output_msg_.data = distance_;
     pub.publish(output_msg_);
-    
+
+    geometry_msgs::Point msg_p;
+    msg_p.x = desired_position_(0);
+    msg_p.y = desired_position_(1);
+    msg_p.z = desired_position_(2);
+    pub_desired.publish(msg_p);    
 }
 
 void ROSMogsLookingAtConstraint::callback( const geometry_msgs::Point & msg)

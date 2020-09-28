@@ -32,8 +32,9 @@ ROSMogsEndEffectorConstraint::ROSMogsEndEffectorConstraint(	QDomElement pg_root,
 
 {
     positions_.resize(1);
-    sub = n.subscribe(topic_name_ + "/Point", 5, &ROSMogsEndEffectorConstraint::callback,this);
-    pub = n.advertise<std_msgs::Float64> ( topic_name_ + "/Error", 500);    
+    sub = n.subscribe(topic_name_ + "/Point", 10, &ROSMogsEndEffectorConstraint::callback,this);
+    pub = n.advertise<std_msgs::Float64> ( topic_name_ + "/Error", 1);
+    pub_desired = n.advertise<geometry_msgs::Point> ( topic_name_ + "/Desired", 1);        
 }
 
 ROSMogsEndEffectorConstraint::~ROSMogsEndEffectorConstraint()
@@ -50,7 +51,12 @@ void ROSMogsEndEffectorConstraint::compute( Eigen::Matrix <F<double>,Eigen::Dyna
     //publish the error
     output_msg_.data = distance_;
     pub.publish(output_msg_);
-    
+
+    geometry_msgs::Point msg_p;
+    msg_p.x = desired_position_(0);
+    msg_p.y = desired_position_(1);
+    msg_p.z = desired_position_(2);
+    pub_desired.publish(msg_p);
 }
 
 void ROSMogsEndEffectorConstraint::callback( const geometry_msgs::Point & msg)

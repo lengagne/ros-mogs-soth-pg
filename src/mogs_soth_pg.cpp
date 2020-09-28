@@ -20,7 +20,7 @@ bool pg_is_ready = false;
 void UpdateJointValue (const sensor_msgs::JointState& msg)
 {
 //     std::cout<<"COUT Starting PG"<<std::endl;
-     ROS_INFO("Update Jointe Value PG");
+     ROS_INFO("Update Jointe Value PG");  
     for(int i=0;i<msg.name.size();i++)
     {
         std::map<std::string,unsigned int>::const_iterator it = joint_id.find(msg.name[i]);
@@ -106,8 +106,8 @@ int main(int argc, char** argv){
         out_msg.points[i].positions.resize(1);
 
     
-    pubJointAngle = nh.advertise<trajectory_msgs::JointTrajectory>("/mogs_soth_pg/joint_angles", 1000); 	
-    ros::Subscriber sub = nh.subscribe("/mogs_soth_pg/joint_states", 1000, UpdateJointValue);
+    pubJointAngle = nh.advertise<trajectory_msgs::JointTrajectory>("/mogs_soth_pg/joint_angles", 10); 	
+    ros::Subscriber sub = nh.subscribe("/mogs_soth_pg/joint_states", 5, UpdateJointValue);
     
     pg_is_ready = true;
     
