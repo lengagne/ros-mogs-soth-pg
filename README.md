@@ -11,8 +11,17 @@ go in ThirdParty/soth and do
 git submodule init
 git submodule update
 
+To compile the soth
+cd ThirdParty/soth
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Realease ..
+make
+(sudo) make install
+
 To compile go in ThirdParty
 mkdir build
-cmake -DCMAKE_BUILd_TYPE=Release ..
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
 make 
-sudo make install
+(sudo) make install
