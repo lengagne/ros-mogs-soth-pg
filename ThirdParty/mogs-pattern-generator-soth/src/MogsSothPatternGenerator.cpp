@@ -40,7 +40,7 @@ MogsSothPatternGenerator::MogsSothPatternGenerator( RigidBodyDynamics::MogsRobot
                                                     std::vector< MogsAbstractSothConstraint * > constraints,
                                                     double coeff):t_start_(0.),coeff_(coeff)
 {
-        test_derivative_ = false;
+    test_derivative_ = false;
 	set_robot(this_robot);
 	constraints_ = constraints;
 	initialize_solver();
@@ -123,11 +123,11 @@ void MogsSothPatternGenerator::read_root_xml(std::vector< RigidBodyDynamics::Mog
 
         QDomElement Elmaxdt = root_.firstChildElement("max_dt");
         if(!Elmaxdt.isNull())
-            coeff_ = Elmaxdt.text().toDouble();
+            max_dt_ = Elmaxdt.text().toDouble();
         else
         {
             std::cout<<"You did not specify a max_dt coefficient : we consider the default one (1e6)"<<std::endl;
-            max_dt_ = 1e6;
+            max_iter_ = 1e6;
         }
 
         QDomElement Elmaxiter = root_.firstChildElement("max_iter");
@@ -259,7 +259,7 @@ bool MogsSothPatternGenerator::compute(		double time,
 
     while( current_time_ < time && count < max_iter_)
     {
-
+        qDebug()<<"on est dans la boucle ";
 	    // update the current state of the robot
 	    for (int i=0;i<nb_dof_;i++)
 	    {
@@ -283,7 +283,7 @@ bool MogsSothPatternGenerator::compute(		double time,
 		    for (int i=0;i<nb_dof_;i++)
 		    {
 
-                            dq_(i) *= coeff_;
+                dq_(i) *= coeff_;
 			    if ( ! std::isnan(dq_(i)))
 			    {
 				    // FIXME take into account the actual limits
@@ -318,12 +318,19 @@ bool MogsSothPatternGenerator::compute(		double time,
         }
         current_time_ += dt;
         count++;
+        qDebug()<<"dt = "<< dt;
+        qDebug()<<"coeff_ = "<< coeff_;
+        qDebug()<<"max_dt_ = "<< max_dt_;
+        qDebug()<<"current_time_ = "<< current_time_;
+        qDebug()<<"time = "<< time;
+        qDebug()<<"count = "<< count;
     }
-
+    t_start_ = time;
     // fixme how to deal with DQ
 	if(DQ)
     {
         std::cerr<<"FIXME in File "<< __FILE__<<" at line "<< __LINE__ <<std::endl;
+        std::cerr<<"This is not a big issue if you do not use the joint velocities"<<std::endl;
 		(*DQ) = dq_;
     }
 // 	std::cout<<"time-t_start_ = "<< time-t_start_ <<std::endl;
