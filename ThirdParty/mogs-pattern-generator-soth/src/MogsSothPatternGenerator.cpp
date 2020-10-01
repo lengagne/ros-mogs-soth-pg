@@ -259,7 +259,6 @@ bool MogsSothPatternGenerator::compute(		double time,
 
     while( current_time_ < time && count < max_iter_)
     {
-        qDebug()<<"on est dans la boucle ";
 	    // update the current state of the robot
 	    for (int i=0;i<nb_dof_;i++)
 	    {
@@ -318,12 +317,6 @@ bool MogsSothPatternGenerator::compute(		double time,
         }
         current_time_ += dt;
         count++;
-        qDebug()<<"dt = "<< dt;
-        qDebug()<<"coeff_ = "<< coeff_;
-        qDebug()<<"max_dt_ = "<< max_dt_;
-        qDebug()<<"current_time_ = "<< current_time_;
-        qDebug()<<"time = "<< time;
-        qDebug()<<"count = "<< count;
     }
     t_start_ = time;
     // fixme how to deal with DQ
