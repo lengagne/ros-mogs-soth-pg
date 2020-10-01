@@ -115,6 +115,31 @@ void MogsSothPatternGenerator::read_root_xml(std::vector< RigidBodyDynamics::Mog
         QDomElement Elspeedup = root_.firstChildElement("speed_up");
         if(!Elspeedup.isNull())
             coeff_ = Elspeedup.text().toDouble();
+        else
+        {
+            std::cout<<"You did not specify a speed_up coefficient : we consider the default one (1.0)"<<std::endl;
+            coeff_ = 1.0;
+        }
+
+        QDomElement Elmaxdt = root_.firstChildElement("max_dt");
+        if(!Elmaxdt.isNull())
+            coeff_ = Elmaxdt.text().toDouble();
+        else
+        {
+            std::cout<<"You did not specify a max_dt coefficient : we consider the default one (1e6)"<<std::endl;
+            max_dt_ = 1e6;
+        }
+
+        QDomElement Elmaxiter = root_.firstChildElement("max_iter");
+        if(!Elmaxiter.isNull())
+            max_iter_ = Elmaxiter.text().toInt();
+        else
+        {
+            std::cout<<"You did not specify a max_iter coefficient : we consider the default one (100)"<<std::endl;
+            max_iter_= 100;
+        }
+
+
         
         test_derivative_ = false;
         QDomElement ElTestDeriv = root_.firstChildElement("test_derivative");
@@ -225,68 +250,87 @@ bool MogsSothPatternGenerator::compute(		double time,
         }
     
 // 	std::cout<<"q_ = "<<(*Q).transpose()<<std::endl<<std::endl;
-	// update the current state of the robot
-	for (int i=0;i<nb_dof_;i++)
-	{
-		q_(i) = (*Q)(i);
-		q_(i).diff(i,nb_dof_);
-	}
 
-	kin_->UpdateKinematicsCustom(&q_);
-	for (int i=0;i<nb_tasks_;i++)
-	{
-		constraints_[i]->compute(q_,kin_, solver_->priorities[i],kin_double);
-// 		std::cout<<"task number "<< i <<std::endl;
-// 		std::cout<<"err = "<< solver_->priorities[i]->error <<std::endl<<std::endl;
-// 		std::cout<<"jac = "<< solver_->priorities[i]->Jacobian <<std::endl<<std::endl;
+    double dt = time-t_start_;
+    if(dt > max_dt_)        dt = max_dt_;
 
-	}
-	if ( solver_->solve(dq_))
-	{
+    double current_time_ = t_start_;
+    unsigned int count = 0;
 
-		for (int i=0;i<nb_dof_;i++)
-		{
+    while( current_time_ < time && count < max_iter_)
+    {
 
-                        dq_(i) *= coeff_;
-			if ( ! std::isnan(dq_(i)))
-			{
-				// FIXME take into account the actual limits
-				if (dq_(i)> dq_max_[i])
-					dq_(i) = dq_max_[i];
-				if (dq_(i)< -dq_max_[i])
-					dq_(i) = -dq_max_[i];
-				(*Q)(i) += dq_(i) * (time-t_start_);
+	    // update the current state of the robot
+	    for (int i=0;i<nb_dof_;i++)
+	    {
+		    q_(i) = (*Q)(i);
+		    q_(i).diff(i,nb_dof_);
+	    }
 
-				if((*Q)(i)< q_min_[i])
-                                {  
-                                    std::cerr<<"Joint limit violation on joint "<< i<<"  "<< (*Q)(i)  <<" < "<< q_min_[i]<<std::endl;
-                                    (*Q)(i) = q_min_[i];   
-                                }
-				if((*Q)(i)> q_max_[i])
-                                {  
-                                    std::cerr<<"Joint limit violation on joint "<< i<<"  "<< (*Q)(i)  <<" > "<< q_max_[i]<<std::endl;
-                                    (*Q)(i) = q_max_[i];   
-                                }
-//				std::cout<<"q_ = "<<(*Q).transpose()<<std::endl<<std::endl;
-			}else
-			{
-			    qDebug()<<"Error get nan is compuation of joint velocity";
-				getchar();
-			}
-		}
-	}else
+	    kin_->UpdateKinematicsCustom(&q_);
+	    for (int i=0;i<nb_tasks_;i++)
+	    {
+		    constraints_[i]->compute(q_,kin_, solver_->priorities[i],kin_double);
+    // 		std::cout<<"task number "<< i <<std::endl;
+    // 		std::cout<<"err = "<< solver_->priorities[i]->error <<std::endl<<std::endl;
+    // 		std::cout<<"jac = "<< solver_->priorities[i]->Jacobian <<std::endl<<std::endl;
+
+	    }
+
+	    if ( solver_->solve(dq_))
+	    {
+
+		    for (int i=0;i<nb_dof_;i++)
+		    {
+
+                            dq_(i) *= coeff_;
+			    if ( ! std::isnan(dq_(i)))
+			    {
+				    // FIXME take into account the actual limits
+				    if (dq_(i)> dq_max_[i])
+					    dq_(i) = dq_max_[i];
+				    if (dq_(i)< -dq_max_[i])
+					    dq_(i) = -dq_max_[i];
+				    (*Q)(i) += dq_(i) * dt;
+
+				    if((*Q)(i)< q_min_[i])
+                                    {  
+                                        std::cerr<<"Joint limit violation on joint "<< i<<"  "<< (*Q)(i)  <<" < "<< q_min_[i]<<std::endl;
+                                        (*Q)(i) = q_min_[i];   
+                                    }
+				    if((*Q)(i)> q_max_[i])
+                                    {  
+                                        std::cerr<<"Joint limit violation on joint "<< i<<"  "<< (*Q)(i)  <<" > "<< q_max_[i]<<std::endl;
+                                        (*Q)(i) = q_max_[i];   
+                                    }
+    //				std::cout<<"q_ = "<<(*Q).transpose()<<std::endl<<std::endl;
+			    }else
+			    {
+			        qDebug()<<"Error get nan is compuation of joint velocity";
+				    getchar();
+			    }
+		    }
+	    }else
         {
                 std::cout<<"on ajoute du bruit"<<std::endl;
                 for (int i=0;i<nb_dof_;i++)
                     (*Q)(i) += frand_a_b(-0.01,0.01);
         }
+        current_time_ += dt;
+        count++;
+    }
+
+    // fixme how to deal with DQ
 	if(DQ)
+    {
+        std::cerr<<"FIXME in File "<< __FILE__<<" at line "<< __LINE__ <<std::endl;
 		(*DQ) = dq_;
+    }
 // 	std::cout<<"time-t_start_ = "<< time-t_start_ <<std::endl;
 // 	std::cout<<"dq = "<< dq_.transpose()<<std::endl<<std::endl<<std::endl;
 // 	for (int i=0;i<nb_dof_;i++)
 // 	    std::cout<<"q_("<<i<<") = "<<(*Q)(i) <<" in ["<< q_min_[i]<<":"<<q_max_[i]<<"]"<<std::endl;
-	t_start_ = time;
+
 	return true;
 }
 

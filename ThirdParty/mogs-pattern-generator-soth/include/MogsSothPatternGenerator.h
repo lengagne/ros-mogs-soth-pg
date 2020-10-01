@@ -90,8 +90,11 @@ protected:
 	int nb_tasks_;
 
 	double coeff_;
-        
-        bool test_derivative_;
+
+    double max_dt_ = 1e6;    
+    unsigned int max_iter_ = 100;
+    
+    bool test_derivative_;
 };
 
 
